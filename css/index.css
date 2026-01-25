@@ -102,10 +102,9 @@ body {
 .input-field {
     width: 90%;
     padding: 15px;
-    margin: 20px;
+    margin: 15px 0;
     border-radius: 10px;
     border: 3px solid #AFCBFF; /* Light blue border */
-    outline: none;
     font-size: 16px;
     background-color: white;
 }
@@ -328,3 +327,31 @@ body {
     border: 1px solid #AFCBFF;
     font-size: 16px;
 }
+
+.toggle-password {
+    position: absolute;
+    right: 25px; /* for eye icon left and right */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    color: #0F4C81;
+}
+
+.input-wrapper {
+    width: 90%;
+    margin: 5px 0;
+}
+
+.password-wrapper {
+    width: 90%;
+    margin: 5px 0;
+    position: relative;
+}
+
+.password-wrapper .input-field {
+    width: 82%;
+    margin: 10px 0;
+    padding-right: 45px;
+}
+

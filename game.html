@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find the Sequence</title>
+    <style>
+        body {
+            background-color: #153d73;
+            background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px),
+                              linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 40px 40px; /* Tetris grid effect */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 70px;
+            color: white;
+        }
+
+        h1 {
+            color: white;
+            font-size: 65px;
+            margin-bottom: 90px;
+        }
+
+        h2 {
+            font-size: 45px;
+        }
+
+        /* Pink name entry boxes */
+        .pinkBox {
+            background-color: rgb(241, 131, 149);
+            border: 3px solid black;
+            padding: 20px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        .sequence-box {
+            display: inline-flex;
+            gap: 25px;
+            margin: 20px 0 30px 0;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: #FFD700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            color: red;
+            border-radius: 10px;
+            font-weight: bold;
+            border: 4px solid black;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #infoBar {
+            margin-top: 20px;
+            font-size: 26px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* Left Stats Box */
+        #leftStats {
+            position: absolute;
+            left: 20px;
+            top: 180px;
+            width: 200px;
+            padding: 15px;
+            border: 3px solid white;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.1);
+            font-size: 20px;
+            text-align: left;
+        }
+
+        #leftStats div {
+            margin-bottom: 12px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Final Results Box */
+        #resultsList {
+            border: 3px solid white;
+            padding: 25px;
+            width: 55%;
+            margin: auto;
+            border-radius: 10px;
+            background-color: rgba(255,255,255,0.1);
+            font-size: 28px;
+            text-align: center;
+        }
+
+        #finalResults h2 {
+            font-size: 48px;
+        }
+
+        #scoreCardTitle {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: yellow;
+            text-shadow: 2px 2px black;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Find the Sequence</h1>
+
+<!-- MODE SELECTION -->
+<div id="modeSelect">
+    <h2>Select Game Mode</h2>
+    <button onclick="startSinglePlayer()">Single Player</button>
+    <button onclick="startMultiplayer()">Multiplayer</button>
+</div>
+
+<!-- SINGLE PLAYER NAME ENTRY -->
+<div id="singleNameEntry" class="hidden pinkBox">
+    <h2>Enter Your Name</h2>
+    <input id="singleName" maxlength="15" placeholder="Player Name"><br><br>
+    <button onclick="saveSingleName()">Save Name</button>
+</div>
+
+<!-- MULTIPLAYER NAME ENTRY -->
+<div id="multiNameEntry" class="hidden pinkBox">
+    <h2>Enter Player Names</h2>
+    <input id="p1" maxlength="15" placeholder="Player 1 Name"><br><br>
+    <input id="p2" maxlength="15" placeholder="Player 2 Name"><br><br>
+    <input id="p3" maxlength="15" placeholder="Player 3 Name"><br><br>
+    <button onclick="saveMultiplayerNames()">Start Game</button>
+</div>
+
+<!-- GAME AREA -->
+<div id="gameArea" class="hidden">
+
+    <div id="leftStats">
+        <div><b>Correct:</b> <span id="correctCount">0</span></div>
+        <div><b>Wrong:</b> <span id="wrongCount">0</span></div>
+        <div><b>Turn:</b> <span id="turnInfo"></span></div>
+    </div>
+
+    <div id="dynamicSequence" class="sequence-box"></div>
+
+    <div id="infoBar">
+        <div id="displayName">Name: ---</div>
+        <div id="score">Score: 0</div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <button onclick="checkAnswer('A')">A. [X, X, O]</button>
+        <button onclick="checkAnswer('B')">B. [O, X, X]</button>
+        <button onclick="checkAnswer('C')">C. [X, O, X]</button>
+    </div>
+
+    <button onclick="resetGame()">Reset Game</button>
+</div>
+
+<!-- FINAL RESULTS -->
+<div id="finalResults" class="hidden">
+    <h2>Game Over</h2>
+    <div id="scoreCardTitle">Score Card</div>
+    <div id="resultsList"></div>
+    <button onclick="restart()">Play Again</button>
+</div>
+
+<script>
+    const sequences = {
+        A: ['X', 'X', 'O'],
+        B: ['O', 'X', 'X'],
+        C: ['X', 'O', 'X']
+    };
+
+    let correctKey = "";
+    let score = 0;
+    let correct = 0;
+    let wrong = 0;
+    let playCount = 0;
+
+    let mode = "";
+    let players = [];
+    let currentPlayerIndex = 0;
+
+    function startSinglePlayer() {
+        mode = "single";
+        document.getElementById("modeSelect").classList.add("hidden");
+        document.getElementById("singleNameEntry").classList.remove("hidden");
+    }
+
+    function saveSingleName() {
+        let name = document.getElementById("singleName").value.trim();
+        if (!name) {
+            alert("Enter a valid name");
+            return;
+        }
+        players = [{ name: name, score: 0 }];
+        startGame();
+    }
+
+    function startMultiplayer() {
+        document.getElementById("modeSelect").classList.add("hidden");
+        document.getElementById("multiNameEntry").classList.remove("hidden");
+    }
+
+    function saveMultiplayerNames() {
+    players = [];
+
+    let p1 = document.getElementById("p1").value.trim();
+    let p2 = document.getElementById("p2").value.trim();
+    let p3 = document.getElementById("p3").value.trim();
+
+    let entered = [p1, p2, p3].filter(n => n !== "");
+
+    // Check duplicates
+    let unique = new Set(entered);
+    if (unique.size !== entered.length) {
+        alert("Each player must have a unique name.");
+        return;
+    }
+
+    // Push valid names
+    entered.forEach(n => players.push({ name: n, score: 0 }));
+
+    if (players.length === 0) {
+        alert("Enter at least one name");
+        return;
+    }
+
+    mode = "multi";
+    startGame();
+}
+
+
+    function startGame() {
+        document.getElementById("singleNameEntry").classList.add("hidden");
+        document.getElementById("multiNameEntry").classList.add("hidden");
+        document.getElementById("gameArea").classList.remove("hidden");
+
+        loadPlayer();
+        loadSequence();
+    }
+
+    function loadPlayer() {
+        let player = players[currentPlayerIndex];
+        score = player.score;
+        correct = 0;
+        wrong = 0;
+        playCount = 0;
+
+        document.getElementById("displayName").textContent = "Name: " + player.name;
+        document.getElementById("score").textContent = "Score: " + score;
+        document.getElementById("correctCount").textContent = correct;
+        document.getElementById("wrongCount").textContent = wrong;
+        document.getElementById("turnInfo").textContent = player.name;
+    }
+
+    function loadSequence() {
+        const keys = Object.keys(sequences);
+        correctKey = keys[Math.floor(Math.random() * keys.length)];
+
+        const seq = sequences[correctKey];
+        const container = document.getElementById("dynamicSequence");
+        container.innerHTML = "";
+
+        seq.forEach(letter => {
+            const div = document.createElement("div");
+            div.className = "box";
+            div.textContent = letter;
+            container.appendChild(div);
+        });
+    }
+
+    function checkAnswer(choice) {
+        playCount++;
+
+        if (choice === correctKey) {
+            score += 10;
+            correct++;
+        } else {
+            wrong++;
+        }
+
+        document.getElementById("score").textContent = "Score: " + score;
+        document.getElementById("correctCount").textContent = correct;
+        document.getElementById("wrongCount").textContent = wrong;
+
+        if (playCount >= 5) {
+            players[currentPlayerIndex].score = score;
+
+            if (mode === "multi" && currentPlayerIndex < players.length - 1) {
+                currentPlayerIndex++;
+                loadPlayer();
+                loadSequence();
+                return;
+            }
+
+            endGame();
+            return;
+        }
+
+        loadSequence();
+    }
+
+    function endGame() {
+        document.getElementById("gameArea").classList.add("hidden");
+        document.getElementById("finalResults").classList.remove("hidden");
+
+        if (mode === "single") {
+            document.getElementById("resultsList").innerHTML =
+                `<p><b>${players[0].name}:</b> ${players[0].score} points</p>`;
+            return;
+        }
+
+        players.sort((a, b) => b.score - a.score);
+
+        let html = "";
+        players.forEach((p, i) => {
+            html += `<p><b>Rank ${i + 1}:</b> ${p.name} — ${p.score} points</p>`;
+        });
+
+        document.getElementById("resultsList").innerHTML = html;
+    }
+
+    function resetGame() {
+        location.reload();
+    }
+
+    function restart() {
+        location.reload();
+    }
+</script>
+
+</body>
+</html>

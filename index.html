@@ -14,9 +14,9 @@
     <div class="container">
 
         <!-- HEADER TEXT -->
-        <div class="header-text">
+    <div class="header-text">
             Genuine Jobs & Accountable Recruitors
-        </div>
+    </div>
 
         <!-- TOP PRODUCT NAME -->
     <div class="product-title">
@@ -30,21 +30,21 @@
         <p>• Platform to share interview/recruitor feedback</p>
     </div>
 
-        <!-- LEFT SIDE TAGLINE -->
-        <div class="left-section">
-            <div class="tagline">Hiring That Respects You.</div>
-            <div class="subtext">
-                CleanHire ensures transparency, accountability, and fairness in every job application.
-            </div>
-        </div>
+    <!-- LEFT SIDE TAGLINE -->
+    <div class="left-section">
+    <div class="tagline">Hiring That Respects You.</div>
+    <div class="subtext">
+            CleanHire ensures transparency, accountability, and fairness in every job application.
+    </div>
+    </div>
 
-        <!-- LOGIN FORM -->
-        <div class="login-section">
+    <!-- LOGIN FORM -->
+    <div class="login-section">
             <h2>Login</h2>
 
-        <div class="input-wrapper">
-    <input type="email" class="input-field" placeholder="Email Address">
-        </div>
+    <div class="input-wrapper">
+        <input type="email" class="input-field" placeholder="Email Address">
+    </div>
 
     <div class="password-wrapper">
         <input type="password" class="input-field" id="loginPassword" placeholder="Password">
@@ -54,17 +54,17 @@
         </span>
     </div>
 
-            <button class="btn login-btn">Login</button> 
-            <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
+        <button class="btn login-btn">Login</button> 
+        <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
                
-        <!-- OTHER LOGIN OPTIONS -->
-        <div class="other-login">
+    <!-- OTHER LOGIN OPTIONS -->
+    <div class="other-login">
 
         <p class="other-title"> - Login via - </p>
 
         <button class="btn gmail-btn" onclick="openPopup()">
             Login with 
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="gmail-logo"> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="gmail-logo"> 
         </button>
 
         <p class="or-text">or</p>
@@ -74,14 +74,14 @@
         </button>
 
     </div>
-        </div>
+    </div>
 
     </div>
 
     <!-- Linking external JS -->
     <script src="assets/js/login.js"></script>
     <div id="gmailPopup" class="popup-overlay">
-        <div class="popup-box">
+    <div class="popup-box">
             <span class="close-popup" onclick="closePopup()">×</span>
 
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" class="popup-gmail-logo">
@@ -91,7 +91,7 @@
             <button class="popup-google-btn">Sign in with Gmail</button>
 
             <p class="popup-subtext">New here? <a href="#">Create a Google Account</a></p>
-        </div>
+    </div>
     </div>
 
     <script>
@@ -104,25 +104,25 @@
     }
     </script>
 
-<div id="mobilePopup" class="popup-overlay">
+    <div id="mobilePopup" class="popup-overlay">
     <div class="popup-box">
 
         <span class="close-popup" onclick="closeMobilePopup()">×</span>
 
         <h3>Login with Mobile Number</h3>
 
-        <!-- Country Code + Phone Number -->
-        <div class="phone-row">
-            <select id="countryCode" class="country-code">
+    <!-- Country Code + Phone Number -->
+    <div class="phone-row">
+        <select id="countryCode" class="country-code">
                 <option value="+91">🇮🇳 +91</option>
                 <option value="+1">🇺🇸 +1</option>
                 <option value="+44">🇬🇧 +44</option>
                 <option value="+61">🇦🇺 +61</option>
                 <option value="+971">🇦🇪 +971</option>
-            </select>
+        </select>
 
-            <input type="text" id="phoneNumber" class="phone-input" placeholder="10-digit number" maxlength="10">
-        </div>
+        <input type="text" id="phoneNumber" class="phone-input" placeholder="10-digit number" maxlength="10">
+   </div>
 
         <button class="popup-google-btn" onclick="sendOTP()">Get OTP</button>
 
@@ -131,31 +131,31 @@
 
         <button id="enterBtn" class="popup-google-btn" style="display:none;">Enter</button>
 
-    </div>
-</div>
+  </div>
+  </div>
 
-<script>
-function openMobilePopup() {
-    document.getElementById("mobilePopup").style.display = "flex";
-}
-
-function closeMobilePopup() {
-    document.getElementById("mobilePopup").style.display = "none";
-}
-
-function sendOTP() {
-    let phone = document.getElementById("phoneNumber").value;
-
-    if (phone.length !== 10) {
-        alert("Please enter a valid 10-digit phone number");
-        return;
+  <script>
+    function openMobilePopup() {
+        document.getElementById("mobilePopup").style.display = "flex";
     }
+    
+    function closeMobilePopup() {
+        document.getElementById("mobilePopup").style.display = "none";
+    }
+    
+    function sendOTP() {
+        let phone = document.getElementById("phoneNumber").value;
+    
+        if (phone.length !== 10) {
+            alert("Please enter a valid 10-digit phone number");
+            return;
+        }
 
     // Show OTP field + Enter button
     document.getElementById("otpInput").style.display = "block";
     document.getElementById("enterBtn").style.display = "block";
-}
-</script>
+    }
+    </script>
 
 </body>
 </html>

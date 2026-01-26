@@ -1,0 +1,125 @@
+/* NAVBAR */
+.navbar {
+    width: 95%;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO + LINKS grouped together */
+.logo-and-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.logo-and-links::after {
+    content: " ";
+    position: absolute;
+    left: calc(100% + 15px);
+    top: 0;
+    bottom: 0;
+    width: 2px; 
+    height: 40px;
+    background-color: #C68B59; /* caramel */ 
+}
+
+/* LOGO */
+.logo { 
+    font-size: 30px;
+    font-weight: 800; 
+    color: #5A3825; 
+    padding-right: 30px;
+    border-right: 2px solid #C68B59; /* caramel vertical line */
+}
+
+.logo span {
+    color: #C68B59;
+}
+
+/* NAV LINKS */
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #5A3825;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #C68B59;
+}
+
+/* HAMBURGER MENU */
+.menu-icon {
+    font-size: 32px;
+    cursor: pointer;
+    color: #5A3825;
+}
+
+/* PROFILE SECTION BELOW NAVBAR */
+.profile-section {
+    margin-top: 10px;
+    margin-left: 40px; /* aligns with navbar padding */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+.profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 25%;
+    border: 2px solid #C68B59;
+    object-fit: cover;
+}
+
+.username {
+    font-size: 20px;
+    font-weight: 700;
+    color: #5A3825;
+    margin-left: 23px;
+}
+
+.navbar {
+    width: 95%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #C68B59; /* caramel horizontal line */
+}
+
+/* PDOWN MENU */
+.dropdown-menu {
+    position: absolute;
+    top: 80px; /* below navbar */
+    right: 40px;
+    background-color: #FFF8E7; /* cream */
+    border: 2px solid #C68B59; /* caramel */
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    width: 150px;
+    padding: 10px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.dropdown-menu a {
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #5A3825;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #F2E4D5; /* light caramel tint */
+}

@@ -6,7 +6,7 @@
     <title>CleanHire Login</title>
 
     <!-- Linking external CSS -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
@@ -38,11 +38,29 @@
             <!-- NEW GAME SECTION (correct placement) --> 
         <div class="game-helper"> 
             <p class="helper-title">Not sure what to do?</p> 
-            <p class="helper-subtitle">Play this Game.</p>
-            <button class="game-btn" onclick="window.open('game.html', '_blank')">
+            <p class="helper-subtitle">Play this Game.</p> 
+            <button class="game-btn" onclick="window.open('game.html', '_blank')"> 
                 Find‑the‑Sequence 🎮
             </button> 
+
         </div> 
+    </div>
+        <!-- LOGIN CREDENTIALS -->
+
+    <div class="demo-credentials">
+    <p class="demo-title">Demo Login Credentials.</p>
+
+    <div class="demo-row">
+        <span class="demo-label">Email:</span>
+        <span id="demoEmail" class="demo-value">demo@cleanhire.com</span>
+        <button class="copy-btn" onclick="copyText('demoEmail')">Copy</button>
+    </div>
+
+    <div class="demo-row">
+        <span class="demo-label">Password:</span>
+        <span id="demoPassword" class="demo-value">CleanHire123</span>
+        <button class="copy-btn" onclick="copyText('demoPassword')">Copy</button>
+    </div>
     </div>
 
         <!-- LOGIN FORM -->
@@ -50,18 +68,18 @@
             <h2>Login</h2>
 
         <div class="input-wrapper">
-    <input type="email" class="input-field" placeholder="Email Address">
+            <input type="email" id="email" class="input-field" placeholder="Email Address">
         </div>
 
-    <div class="password-wrapper">
-        <input type="password" class="input-field" id="loginPassword" placeholder="Password">
-        <span class="toggle-password" onclick="togglePassword()">
-            <span id="eyeOpen">👁️</span>
-            <span id="eyeClosed" style="display:none;">🙈</span>
-        </span>
-    </div>
+        <div class="password-wrapper">
+            <input type="password" id="password" class="input-field" placeholder="Password">
+            <span class="toggle-password" onclick="togglePassword()">
+                <span id="eyeOpen">👁️</span>
+                <span id="eyeClosed" style="display:none;">🙈</span>
+            </span>
+        </div>
 
-            <button class="btn login-btn">Login</button> 
+            <button type="button" onclick="login()" class="btn login-btn">Login</button>
             <button class="btn signup-btn" onclick="window.location.href='signup.html'">Sign Up</button>
                
         <!-- OTHER LOGIN OPTIONS -->
@@ -163,6 +181,29 @@ function sendOTP() {
     document.getElementById("enterBtn").style.display = "block";
 }
 </script>
+
+<script>
+function login() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Temporary demo credentials
+    if (email === "demo@cleanhire.com" && password === "CleanHire123") {
+        localStorage.setItem("loggedIn", "true");
+        window.location.href = "homepage.html";
+    } else {
+        alert("Invalid email or password");
+    }
+}
+</script>
+
+    <script>
+    function copyText(id) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text);
+        alert("Copied: " + text);
+    }
+    </script>
 
 </body>
 </html>

@@ -3,69 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CleanHire Homepage</title>
+    <title>CleanHire Signup</title>
 
-    <!-- IMPORTANT: Make sure this path matches your folder structure -->
-    <link rel="stylesheet" href="css/homepage.css">
+    <!-- Linking external CSS -->
+    <link rel="stylesheet" href="css/signup.css">
 </head>
 
 <body>
 
-<script>
-if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "index.html";
-}
-</script>
+    <div class="container">
 
-<script>
-function logout() {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "index.html";
-}
-</script>
-
-<div class="homepage-container">
-
-    <!-- TOP NAVIGATION BAR -->
-    <div class="navbar">
-        <div class="logo-and-links">
-            <div class="logo">Clean<span>Hire</span></div>
-
-            <div class="nav-links">
-                <a href="#">Community</a>
-                <a href="#">Explore Jobs</a>
-                <a href="#">Search Top Skills</a>
-                <a href="#">Learn Soft Skills</a>
-                <a href="#">Internship for Students</a>
-                <a href="#">Freelance</a>
-            </div>
+        <!-- HEADER TEXT -->
+        <div class="header-text">
+            Genuine Jobs & Accountable Recruitors
         </div>
 
-        <div class="menu-icon">&#9776;</div>
+        <!-- TOP PRODUCT NAME -->
+    <div class="product-title">
+        <span class="clean">Clean</span><span class="hire">Hire</span>
+    </div>
 
-        <div class="dropdown-menu"> 
-            <a href="#">Account</a>  
-            <a href="#">Help</a>
-            <a href="#" onclick="logout()">Logout</a>
+    <!-- VALUE POINTS UNDER HEADER -->
+    <div class="value-points">
+        <p>• Fast response from Recruitors.</p>
+        <p>• Proper Job Descriptions, no Fuzz.</p>
+        <p>• Platform to share interview/recruitor feedback.</p>
+    </div>
+
+        <!-- LEFT SIDE TAGLINE -->
+    <div class="left-section"> 
+    <div class="tagline">Join a Fair Hiring Revolution.</div> 
+    <div class="subtext"> Create your CleanHire account and experience transparent, respectful hiring. </div> 
+    <div class="clear-head-helper"> 
+        <p class="clear-title">Wanna Clear your Head, before we start?</p>
+        <p class="clear-subtitle">Listen to this and come back when you are ready.</p> 
+        <button class="clear-btn" onclick="window.open('https://www.youtube.com/watch?v=KokDhhUHfa8', '_blank')"> Clear Head 
+        </button> 
+        </div> 
+    </div>
+
+        <!-- SIGNUP FORM -->
+        <div class="signup-section">
+            <h2>Create Account</h2>
+
+            <input type="text" class="input-field" placeholder="Full Name">
+            <input type="email" class="input-field" placeholder="Email Address">
+            <input type="password" class="input-field" placeholder="Password">
+            <input type="password" class="input-field" placeholder="Confirm Password">
+
+            <button class="btn signup-btn">Sign Up</button>
+            <button class="btn login-btn" onclick="window.location.href='index.html'">Back to Login</button>
         </div>
+
     </div>
 
-    <!-- PROFILE SECTION BELOW NAVBAR -->
-    <div class="profile-section">
-        <img src="images/IMG_3723.jpg" class="profile-pic" alt="Profile Picture">
-        <div class="username">user</div>
-    </div>
-
-</div>
-
-<script>
-    const menuIcon = document.querySelector('.menu-icon');
-    const dropdown = document.querySelector('.dropdown-menu');
-
-    menuIcon.addEventListener('click', () => {
-        dropdown.style.display = dropdown.style.display === 'flex' ? 'none' : 'flex';
-    });
-</script>
+    <!-- Linking external JS -->
+    <script src="assets/js/signup.js"></script>
 
 </body>
 </html>

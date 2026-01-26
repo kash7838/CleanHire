@@ -3,7 +3,7 @@ document.querySelector(".signup-btn").addEventListener("click", () => {
 });
 
 function togglePassword() {
-    const passwordField = document.getElementById("loginPassword");
+    const passwordField = document.getElementById("password");
     const eyeOpen = document.getElementById("eyeOpen");
     const eyeClosed = document.getElementById("eyeClosed");
 

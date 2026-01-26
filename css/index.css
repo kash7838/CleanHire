@@ -26,7 +26,7 @@ body {
 /* HEADER TEXT */
 .header-text {
     position: absolute;
-    top: 70px;
+    top: 60px;
     left: 20px;
     font-size: 28px;
     font-weight: 700;
@@ -59,7 +59,7 @@ body {
 /* LEFT TAGLINE */
 .left-section {
     width: 50%;
-    padding: 0;
+    padding: 0%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -69,7 +69,7 @@ body {
 .tagline {
     font-size: 40px;
     font-weight: bold;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .subtext {
@@ -161,7 +161,7 @@ body {
 /* VALUE POINTS UNDER HEADER */
 .value-points {
     position: absolute;
-    top: 90px; /* sits below the header text */
+    top: 85px; /* sits below the header text */
     left: 20%;
     transform: translateX(-50%);
     text-align: left;
@@ -364,12 +364,14 @@ body {
 .helper-title {
     font-size: 20px;
     font-weight: 700;
-    margin-bottom: 2px;  /* reduced */
+    margin-top: 25px;
+    margin-bottom: 10px;
 }
 
 .helper-subtitle {
     font-size: 18px;
-    margin-bottom: 10px;  /* reduced */
+    margin-top: -10px;
+    margin-bottom: 5px;  /* reduced */
 }
 
 .game-btn {
@@ -381,4 +383,49 @@ body {
     font-size: 20px;
     cursor: pointer;
     transition: 0.3s ease;
+}
+
+.demo-credentials {
+    margin-left: -580px;
+    width: 250px;
+}
+
+.demo-title {
+    font-weight: 700;
+    color: #0F4C81;
+    margin-top: 490px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.demo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 0px;
+}
+
+.demo-label {
+    font-weight: 700;
+    color: #0F4C81;
+}
+
+.demo-value {
+    font-family: monospace;
+    color: #0F4C81;
+    padding: 3px 7px;
+}
+
+.copy-btn {
+    padding: 4px 7px;
+    background: #0F4C81;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.copy-btn:hover {
+    background: #66c4ff;
 }

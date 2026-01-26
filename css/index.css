@@ -20,7 +20,7 @@ body {
     flex-direction: row;
     padding: 20px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 
 /* HEADER TEXT */
@@ -63,7 +63,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: #0F4C81; /* Dark blue */
+    position: relative; /* important for game button */
+    z-index: 10;        /* important for game button */
+    color: #0F4C81;   /* Dark blue */
 }
 
 .tagline {
@@ -358,6 +360,8 @@ body {
 .game-helper {
     margin-top: 15px;   /* reduced from 30px */
     text-align: left;
+    position: relative; 
+    z-index: 20;
     color: #0F4C81;
 }
 
@@ -419,6 +423,8 @@ body {
 .copy-btn {
     padding: 4px 7px;
     background: #0F4C81;
+    position: relative; 
+    z-index: 999;
     color: white;
     border: none;
     border-radius: 4px;

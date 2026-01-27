@@ -10,54 +10,80 @@
 </head>
 
 <body>
-
-<script>
-if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "index.html";
-}
-</script>
-
-<script>
-function logout() {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "index.html";
-}
-</script>
-
-<div class="homepage-container">
-
     <!-- TOP NAVIGATION BAR -->
     <div class="navbar">
         <div class="logo-and-links">
             <div class="logo">Clean<span>Hire</span></div>
 
-            <div class="nav-links">
-                <a href="#">Community</a>
-                <a href="#">Explore Jobs</a>
-                <a href="#">Search Top Skills</a>
-                <a href="#">Learn Soft Skills</a>
-                <a href="#">Internship for Students</a>
-                <a href="#">Freelance</a>
-            </div>
+                <div class="nav-links">
+                    <a href="#">Community</a>
+                    <a href="#">Explore Jobs</a>
+                    <a href="#">Search Top Skills</a>
+                    <a href="#">Learn Soft Skills</a>
+                    <a href="#">Internship for Students</a>
+                    <a href="#">Freelance</a>
+                </div>
         </div>
 
         <div class="menu-icon">&#9776;</div>
 
-        <div class="dropdown-menu"> 
-            <a href="#">Account</a>  
-            <a href="#">Help</a>
-            <a href="#" onclick="logout()">Logout</a>
+                <div class="dropdown-menu"> 
+                    <a href="#">Account</a>  
+                    <a href="#">Help</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
         </div>
-    </div>
-</div>
+
+   <div class="homepage-container">
 
     <!-- PROFILE SECTION BELOW NAVBAR -->
     <div class="profile-section">
         <img src="https://www.w3schools.com/howto/img_avatar.png" class="profile-pic" alt="Profile Picture">
         <div class="username">user</div>
-    </div>
 
-<div class="middle-section">
+        <!-- JOB SECTION BELOW NAVBAR -->
+        <div class="jobs-section">
+
+        <h3 class="jobs-title">New Jobs in Market</h3>
+
+        <div class="job-card">
+            <div class="job-info">
+                <p class="job-role">Product Analyst – Bangalore</p>
+                <p class="job-company">Toogle</p>
+            </div>
+            <button class="job-btn">Know More</button>
+        </div>
+
+        <div class="job-card">
+            <div class="job-info">
+                <p class="job-role">Frontend Developer – Remote</p>
+                <p class="job-company">SWG</p>
+            </div>
+                <button class="job-btn">Know More</button>
+        </div>
+
+        <div class="job-card">
+            <div class="job-info">
+                <p class="job-role">Product Manager – Hybrid</p>
+                <p class="job-company">TAPP</p>
+            </div>
+            <button class="job-btn">Know More</button>
+        </div>
+
+            <div class="job-card">
+                <div class="job-info">
+                    <p class="job-role">AI Engineer – Onsite</p>
+                    <p class="job-company">CleanHire</p>
+                </div>
+                <button class="job-btn">Know More</button>
+            </div>
+            
+        </div>
+    </div> <!-- closes profile-section -->
+
+    <!-- Middle-section -->
+
+    <div class="middle-section">
 
     <div class="content-section">
 
@@ -84,7 +110,54 @@ function logout() {
         </div>
     </div>
 
-</div>
+    </div>
+
+    <div class="right-section">
+
+        <!-- CALENDAR -->
+        <div class="calendar-box">
+            <h3 class="calendar-title">February 2026</h3>
+            <table class="calendar-table">
+                <tr>
+                    <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th>
+                    <th>Thu</th><th>Fri</th><th>Sat</th>
+                </tr>
+                <tr>
+                    <td></td><td>1</td><td>2</td><td>3</td>
+                    <td>4</td><td>5</td><td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td><td>8</td><td>9</td><td>10</td>
+                    <td>11</td><td>12</td><td>13</td>
+                </tr>
+                <tr>
+                    <td>14</td><td>15</td><td>16</td><td>17</td>
+                    <td>18</td><td>19</td><td>20</td>
+                </tr>
+                <tr>
+                    <td>21</td><td>22</td><td>23</td><td>24</td>
+                    <td>25</td><td>26</td><td>27</td>
+                </tr>
+                <tr>
+                    <td>28</td><td></td><td></td><td></td>
+                    <td></td><td></td><td></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- NOTEPAD -->
+        <div class="notes-box">
+            <h3 class="notes-title">Your Notes</h3>
+            <textarea id="notesArea" class="notes-area" placeholder=" Write something..."></textarea>
+            <button class="save-notes-btn" onclick="saveNotes()">Save Notes</button>
+            <button class="save-notes-btn" onclick="clearNotes()">Clear Notes</button>
+        </div>
+
+    </div> 
+    
+</div>   <!-- closes homepage-container -->
+
+<script src="js/homepage.js"></script>
 
 <script>
     const menuIcon = document.querySelector('.menu-icon');

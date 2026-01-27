@@ -1,5 +1,7 @@
 *ClearHire*
 
+Github Pages Link: https://kash7838.github.io/CleanHire/
+
 1. Problem Statement
 Job seekers today face a broken hiring experience. Platforms like Naukri, LinkedIn, and others allow
 companies to post jobs with minimal accountability. This leads to:

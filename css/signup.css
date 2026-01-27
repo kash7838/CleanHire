@@ -51,7 +51,7 @@ body {
     position: absolute;
     top: 70px;
     left: 20px;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     color: #0F6A32; /* Dark green */
 }
@@ -72,7 +72,7 @@ body {
 /* LEFT TAGLINE */
 .left-section {
     position: absolute;
-    bottom: 190px;
+    bottom: 90px;
     left: 20px;
     width: 50%;
     display: flex;
@@ -83,7 +83,7 @@ body {
 }
 
 .tagline {
-    font-size: 37px;
+    font-size: 28px;
     font-weight: bold;
     margin: 0;
 }
@@ -181,14 +181,14 @@ body {
 }
 
 .clear-title {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
-    margin: 0 0 10px 0;   /* no top margin */
+    margin: 0 0 7px 0;   /* no top margin */
 }
 
 .clear-subtitle {
-    font-size: 15px;
-    margin: 0 0 10px 0;   /* no top margin */
+    font-size: 18px;
+    margin: 0 0 7px 0;   /* no top margin */
 }
 
 .clear-btn {
@@ -200,8 +200,40 @@ body {
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .clear-btn:hover {
-    background-color: #0F4C81;
+    background-color: skyblue;
+}
+
+.refer-section {
+    margin-top: 20px;
+    border-radius: 15px;
+    text-align: left;
+    padding: 5px;
+    margin: 5px 0 0 0; 
+}
+
+.refer-text {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0F6A32; /* dark green */
+    margin-bottom: 0px;
+}
+
+.refer-btn {
+    background: #0F6A32;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.refer-btn:hover {
+    background: peachpuff;
 }

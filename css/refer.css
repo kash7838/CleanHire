@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: powderblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.refer-container {
+    width: 450px;
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 2px solid black;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #0F6A32;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: #2E6F40;
+    margin-bottom: 20px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #0F6A32;
+}
+
+.form-box {
+    margin-top: 10px;
+}
+
+.input-field {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #A7DDB5;
+    font-size: 16px;
+}
+
+.email-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-btn, .remove-btn, .submit-btn {
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.add-btn {
+    background: #16A34A;
+    color: white;
+    margin-top: 10px;
+}
+
+.add-btn:hover {
+    background: #0F6A32;
+}
+
+.remove-btn {
+    background: #FF6B6B;
+    color: white;
+    padding: 8px 12px;
+}
+
+.remove-btn:hover {
+    background: #E63946;
+}
+
+.submit-btn {
+    width: 100%;
+    background: palevioletred;
+    color: white;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background: #16A34A;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer Friends - CleanHire</title>
+    <link rel="stylesheet" href="assets/css/refer.css">
+</head>
+
+<body>
+
+<div class="refer-container">
+
+    <h1 class="title">Refer Your Circle</h1>
+    <p class="subtitle">Get up to 3 resume feedback by inviting your friends</p>
+
+    <div class="form-box">
+
+        <label class="label">Your Full Name</label>
+        <input type="text" id="fullName" class="input-field" placeholder="Enter your full name">
+
+        <label class="label">Friend Emails</label>
+
+        <div id="emailFields">
+            <div class="email-row">
+                <input type="email" class="input-field email-input" placeholder="Enter email">
+                <button class="remove-btn" onclick="removeField(this)">−</button>
+            </div>
+        </div>
+
+        <button class="add-btn" onclick="addField()">+ Add More</button>
+
+        <button class="submit-btn">Send Invites</button>
+
+    </div>
+
+</div>
+
+<script>
+function addField() {
+    const container = document.getElementById("emailFields");
+
+    const row = document.createElement("div");
+    row.className = "email-row";
+
+    row.innerHTML = `
+        <input type="email" class="input-field email-input" placeholder="Enter email">
+        <button class="remove-btn" onclick="removeField(this)">−</button>
+    `;
+
+    container.appendChild(row);
+}
+
+function removeField(button) {
+    const row = button.parentElement;
+    const container = document.getElementById("emailFields");
+
+    if (container.children.length > 1) {
+        container.removeChild(row);
+    }
+}
+</script>
+
+</body>
+</html>
